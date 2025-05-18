@@ -1,0 +1,45 @@
+/* NavigationProgress.css */
+.navigation-progress-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Optional maximum width */
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.1); /* Light background */
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 1000; /* Ensure it's on top */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* Allow interaction with elements underneath */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .navigation-progress-popup.dark {
+    background-color: rgba(255, 255, 255, 0.1); /* Dark background */
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #646cff; /* Primary color for progress */
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.1s ease-out;
+  }
+  
+  .navigation-progress-popup.dark .progress-bar {
+    background-color: #c678dd; /* Accent color for dark theme */
+  }
+  
+  .progress-text {
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+  }

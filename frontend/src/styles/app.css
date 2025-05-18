@@ -1,0 +1,649 @@
+/* styles/app.css */
+
+/* Base styles and resets (Vite-like) with 3D and animation enhancements */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Vite uses Inter font */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f9f9f9; /* Light background */
+  color: #2c3e50; /* Dark text */
+  line-height: 1.65;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.dark body {
+  background-color: #181818; /* Very dark gray, like Vite */
+  color: #eee; /* Light gray, like Vite */
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography (Vite-like) with animation */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700; /* Bold, like Vite */
+  color: #2c3e50;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em; /* Slight negative letter-spacing for headings */
+  transition: color 0.2s ease-in-out, transform 0.3s ease-in-out; /* Added transform transition */
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #eee;
+}
+
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover {
+  transform: perspective(500px) translateZ(2px); /* Subtle forward movement */
+}
+
+/* Color pulse animation for headings */
+@keyframes heading-pulse {
+  0% { color: #2c3e50; }
+  50% { color: #646cff; }
+  100% { color: #2c3e50; }
+}
+
+.heading-pulse {
+  animation: heading-pulse 2s infinite alternate;
+}
+
+.dark .heading-pulse {
+  animation: heading-pulse-dark 2s infinite alternate;
+}
+
+@keyframes heading-pulse-dark {
+  0% { color: #eee; }
+  50% { color: #c678dd; }
+  100% { color: #eee; }
+}
+
+p {
+  margin-bottom: 1.1rem;
+  color: #6b7280; /* Medium gray for body text */
+  transition: color 0.2s ease-in-out;
+}
+
+.dark p {
+  color: #a1a1aa; /* Lighter gray for body text in dark mode */
+}
+
+a {
+  color: #646cff; /* Vibrant purple link color, like Vite */
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.dark a {
+  color: #c678dd; /* Lighter purple in dark mode */
+}
+
+a:hover {
+  color: #535bf2;
+  text-decoration: underline;
+}
+
+.dark a:hover {
+  color: #e0aaff;
+}
+
+/* Buttons (Vite-like) with 3D hover */
+button {
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 500; /* Slightly less bold than your original */
+  color: #fff;
+  background-color: #646cff; /* Vibrant purple, like Vite */
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  perspective: 500px; /* Add perspective for 3D */
+}
+
+.dark button {
+  background-color: #c678dd; /* Lighter purple in dark mode */
+  color: #eee;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+  transform: translateZ(3px); /* Subtle push forward */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark button:hover {
+  transform: translateZ(3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+button:active {
+  transform: translateZ(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  color: #718096;
+  box-shadow: none;
+}
+
+.dark button:disabled {
+  background-color: #4a5568;
+  color: #a0aec0;
+}
+
+/* Input fields (Vite-like) */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #d1d5db; /* Light gray border */
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: #fff;
+  color: #374151; /* Darker text */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark textarea {
+  border-color: #4b5563; /* Darker gray border */
+  background-color: #27272a; /* Dark background */
+  color: #d4d4d8; /* Light text */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #646cff;
+  box-shadow: 0 0 0 0.15rem rgba(100, 108, 255, 0.2);
+}
+
+.dark input:focus,
+.dark textarea:focus {
+  border-color: #c678dd;
+  box-shadow: 0 0 0 0.15rem rgba(198, 120, 221, 0.2);
+}
+
+/* Layout and spacing (Vite-like - subtle adjustments) */
+.container {
+  max-width: 1280px; /* Slightly wider than before */
+  margin: 0 auto;
+  padding: 1.5rem; /* More padding */
+}
+
+.py-1 {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
+
+.py-2 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.py-4 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.py-6 {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+
+.py-8 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.py-12 {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.py-16 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.px-1 {
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
+}
+
+.px-2 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.px-4 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.px-6 {
+  padding-left: 2.25rem;
+  padding-right: 2.25rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.375rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 2.25rem;
+}
+
+.mb-8 {
+  margin-bottom: 3rem;
+}
+
+.mt-1 {
+  margin-top: 0.375rem;
+}
+
+.mt-2 {
+  margin-top: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.mt-6 {
+  margin-top: 2.25rem;
+}
+
+.mt-8 {
+  margin-top: 3rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+/* Navigation (Vite-like) */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 30;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* More subtle shadow */
+  padding: 0.75rem 0; /* Less vertical padding */
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.dark nav {
+  background-color: #1e293b; /* Darker background */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem; /* Add horizontal padding to container */
+}
+
+nav a.logo {
+  font-size: 1.75rem; /* Slightly larger logo */
+  font-weight: 700;
+  color: #646cff;
+  transition: color 0.2s ease-in-out;
+}
+
+.dark nav a.logo {
+  color: #c678dd;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 1.75rem; /* Slightly larger gap */
+}
+
+nav .nav-links a {
+  color: #4b5563; /* Darker link text */
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.dark nav .nav-links a {
+  color: #d1d5db; /* Lighter link text */
+}
+
+nav .nav-links a:hover {
+  color: #646cff;
+  text-decoration: none;
+}
+
+.dark nav .nav-links a:hover {
+  color: #c678dd;
+}
+
+/* Footer (Vite-like) */
+footer {
+  background-color: #27272a; /* Darker footer background */
+  color: #d4d4d8;
+  text-align: center;
+  padding: 1.5rem 0; /* More padding */
+  margin-top: auto;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.dark footer {
+  background-color: #181818;
+  color: #eee;
+}
+
+/* Image styles (Vite-like - subtle shadow on rounded images) */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.shadow-md {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* More subtle shadow */
+  max-width: 100%;
+  height: auto;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out; /* Added transform */
+  perspective: 500px; /* Added perspective */
+}
+
+.dark .shadow-md {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Darker shadow in dark mode */
+}
+
+.shadow-md:hover {
+  transform: translateZ(2px); /* Subtle forward movement on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); /* Slightly increased shadow */
+}
+
+.dark .shadow-md:hover {
+  transform: translateZ(2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.rounded-lg.shadow-lg {
+  border-radius: 0.75rem; /* Slightly more rounded */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12); /* More prominent shadow */
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out; /* Added transform */
+  perspective: 500px; /* Added perspective */
+}
+
+.dark .rounded-lg.shadow-lg {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.rounded-lg.shadow-lg:hover {
+  transform: translateZ(2px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.18);
+}
+
+.dark .rounded-lg.shadow-lg:hover {
+  transform: translateZ(2px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile Menu (Vite-like) */
+.mobile-menu {
+  transform: translateY(-100%);
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: #fff;
+  color: #27272a;
+  position: absolute;
+  top: 56px; /* Adjust based on your updated navbar height */
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.dark .mobile-menu {
+  background-color: #1e293b;
+  color: #d4d4d8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu.open {
+  transform:translateY(0%);
+}
+
+.mobile-menu ul {
+  padding: 1rem 1.5rem; /* Add horizontal padding */
+  list-style: none;
+  margin: 0;
+}
+
+.mobile-menu ul li {
+  padding: 0.8rem 0; /* More vertical padding */
+  border-bottom: 1px solid #e5e7eb; /* Lighter border */
+}
+
+.dark .mobile-menu ul li {
+  border-bottom: 1px solid #374151; /* Darker border */
+}
+
+.mobile-menu ul li a {
+  display: block;
+  color: #27272a;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.dark .mobile-menu ul li a {
+  color: #d4d4d8;
+}
+
+.mobile-menu ul li a:hover {
+  color: #646cff;
+}
+
+.dark .mobile-menu ul li a:hover {
+  color: #c678dd;
+}
+
+.app-container {
+  position: relative;
+}
+
+/* Style to add top padding to the main content area (adjust based on new nav height) */
+.main-content {
+  padding-top: 56px;
+}
+
+.main-content.mobile-menu-open {
+  padding-top: 240px; /* Adjust based on the maximum height of your mobile menu */
+}
+
+/* Subtle background variations (like Vite) */
+.section-light {
+  background-color: #f4f4f7;
+}
+
+.dark .section-light {
+  background-color: #27272a;
+}
+
+.section-dark {
+  background-color: #e2e8f0;
+}
+
+.dark .section-dark {
+  background-color: #1e293b;
+}
+
+/* Add the Inter font (you might need to include this in your HTML or a separate CSS file) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Specific Vite-like effects (you might need to add classes to your HTML) */
+
+/* Subtle link hover underline grow */
+.link-underline-grow {
+  position: relative;
+  overflow: hidden; /* Clip the pseudo-element */
+}
+
+.link-underline-grow::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px; /* Adjust for thickness */
+  width: 0;
+  height: 2px; /* Adjust for thickness */
+  background-color: #646cff; /* Link hover color */
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.dark .link-underline-grow::after {
+  background-color: #c678dd; /* Dark mode hover color */
+}
+
+.link-underline-grow:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Button hover lift effect (already implemented in button styles) */
+
+/* Card with 3D hover effect */
+.card-3d {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  perspective: 800px;
+}
+
+.dark .card-3d {
+  background-color: #1e293b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.card-3d:hover {
+  transform: rotateY(10deg) translateZ(5px);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.dark .card-3d:hover {
+  transform: rotateY(10deg) translateZ(5px);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Card lift effect */
+.card-lift {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.dark .card-lift {
+  background-color: #1e293b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.card-lift:hover {
+  transform: translateY(-3px) translateZ(2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card-lift:hover {
+  transform: translateY(-3px) translateZ(2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Focus ring style (similar to Vite's) */
+:focus-visible {
+  outline: 2px solid #646cff;
+  outline-offset: 2px;
+  border-radius: 0.2rem;
+}
+
+.dark :focus-visible {
+  outline-color: #c678dd;
+}
+.hero-heading-vite {
+  font-size: 3.5rem; /* Adjust size as needed */
+  font-weight: 700; /* Make it bold */
+  color: #646cff; /* Vite's primary purple/blue */
+  text-align: center; /* Center the heading */
+  margin-bottom: 2rem; /* Add some space below */
+  letter-spacing: -0.02em; /* Subtle negative letter-spacing, like Vite */
+  text-shadow:
+    0 0 5px rgba(100, 108, 255, 0.5), /* Inner glow */
+    0 0 15px rgba(100, 108, 255, 0.3); /* Outer glow */
+  display: inline-block; /* To contain any background effects */
+}
+
+.dark .hero-heading-vite {
+  color: #c678dd; /* Vite's dark mode purple */
+  text-shadow:
+    0 0 5px rgba(198, 120, 221, 0.5), /* Inner glow - dark mode */
+    0 0 15px rgba(198, 120, 221, 0.3); /* Outer glow - dark mode */
+}

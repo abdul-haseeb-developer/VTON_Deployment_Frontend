@@ -1,0 +1,44 @@
+/* CustomCursor.css */
+.custom-cursor {
+    width: 30px;
+    height: 30px;
+    background-image: url('./simple-cursor.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: transform 0.1s ease-out;
+  }
+  
+  .custom-cursor.interactive {
+    width: 48px;
+    height: 48px;
+    background-image: url('./pointing-cursor.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+  }
+  
+  /* Hide the default cursor only on non-touch devices (where a mouse is likely used) */
+  @media (hover: hover) and (pointer: fine) {
+    body {
+      cursor: none;
+    }
+  
+    .custom-cursor {
+      display: block; /* Show the custom cursor */
+    }
+  }
+  
+  /* Hide the custom cursor and show the default on touch devices */
+  @media (hover: none) or (pointer: coarse) {
+    .custom-cursor {
+      display: none; /* Hide the custom cursor */
+    }
+  
+    body {
+      cursor: auto; /* Show the default cursor */
+    }
+  }
