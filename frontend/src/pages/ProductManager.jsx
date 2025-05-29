@@ -24,7 +24,7 @@ const ProductManagerScreen = () => {
 
   const fetchProducts = async () => {
     try {
-      const { data } = await axios.get('/api/products');
+      const { data } = await axios.get('https://vton-deployment-2.onrender.com/api/products');
       setProducts(data);
       setLoading(false);
     } catch (err) {
